@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZYCHCN_API_BP_001_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="QUALIFICATION" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Partner"/>
+                    <PropertyRef Name="Objid"/>
+                </Key>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Objid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Stext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PupStext" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Qualification Catalog" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Rating" Type="Edm.String" Nullable="false" MaxLength="4" sap:text="Rating" sap:unicode="false" sap:label="Proficiency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="fixed-values"/>
+                <Property Name="Pstext" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Proficiency Text" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Begda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Start date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Endda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="End Date" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="RATINGS" Relationship="ZYCHCN_API_BP_001_SRV.TO_RATING" FromRole="FromRole_TO_RATING" ToRole="ToRole_TO_RATING"/>
+            </EntityType>
+            <EntityType Name="PROLVL" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Rating"/>
+                    <PropertyRef Name="Objid"/>
+                    <PropertyRef Name="Partner"/>
+                </Key>
+                <Property Name="Rating" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Proficiency" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Objid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Pstext" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Proficiency" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="PARTNER" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Partner"/>
+                </Key>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ZzreqApproval" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:sortable="false"/>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Partner cat." sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Bpkind" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Partner Type" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="BuGroup" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Grouping" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="BuSort1" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Search term 1" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="BuSort2" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Search term 2" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Xdele" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Archiving Flag" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Xblck" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Central Block" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Augrp" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Authorization Group" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="NotReleased" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Not released" sap:sortable="false"/>
+                <Property Name="NameOrg1" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name 1" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="NameOrg2" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name 2" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="NameOrg3" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name 3" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="NameOrg4" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name 4" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="McName1" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Name 1/Last Nm" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="McName2" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Name2/First Nme" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="PartnerGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="BP GUID" sap:updatable="false" sap:sortable="false"/>
+                <NavigationProperty Name="ADDRESSES" Relationship="ZYCHCN_API_BP_001_SRV.TO_ADDRESS" FromRole="FromRole_TO_ADDRESS" ToRole="ToRole_TO_ADDRESS"/>
+                <NavigationProperty Name="QUALIFICATIONS" Relationship="ZYCHCN_API_BP_001_SRV.To_QUALIFICATION" FromRole="FromRole_To_QUALIFICATION" ToRole="ToRole_To_QUALIFICATION"/>
+                <NavigationProperty Name="IDNUMBERS" Relationship="ZYCHCN_API_BP_001_SRV.To_IDNUMBER" FromRole="FromRole_To_IDNUMBER" ToRole="ToRole_To_IDNUMBER"/>
+            </EntityType>
+            <EntityType Name="IDNUMBER" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Partner"/>
+                    <PropertyRef Name="Type"/>
+                </Key>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="ID Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Idnumber" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="ID number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidDateFrom" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Valid from" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValidDateTo" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Valid To" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ADDRESS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Partner"/>
+                </Key>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Addrnumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Address Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nation" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Address Version" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name2" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name 2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name3" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name 3" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name4" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name 4" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="City1" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="City" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="City2" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="District" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Street" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Country" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Region" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Region" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AddrGroup" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Address group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sort1" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Search Term 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sort2" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Search Term 2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TelNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Telephone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FaxNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Fax" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Flagcomm2" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Telephone..." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Flagcomm3" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Fax..." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Flagcomm12" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="URI/FTP" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="McName1" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="McCity1" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="City" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="McStreet" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Street" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="TO_RATING" sap:content-version="1">
+                <End Type="ZYCHCN_API_BP_001_SRV.QUALIFICATION" Multiplicity="1" Role="FromRole_TO_RATING"/>
+                <End Type="ZYCHCN_API_BP_001_SRV.PROLVL" Multiplicity="*" Role="ToRole_TO_RATING"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_TO_RATING">
+                        <PropertyRef Name="Objid"/>
+                        <PropertyRef Name="Partner"/>
+                    </Principal>
+                    <Dependent Role="ToRole_TO_RATING">
+                        <PropertyRef Name="Objid"/>
+                        <PropertyRef Name="Partner"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="TO_ADDRESS" sap:content-version="1">
+                <End Type="ZYCHCN_API_BP_001_SRV.PARTNER" Multiplicity="1" Role="FromRole_TO_ADDRESS"/>
+                <End Type="ZYCHCN_API_BP_001_SRV.ADDRESS" Multiplicity="*" Role="ToRole_TO_ADDRESS"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_TO_ADDRESS">
+                        <PropertyRef Name="Partner"/>
+                    </Principal>
+                    <Dependent Role="ToRole_TO_ADDRESS">
+                        <PropertyRef Name="Partner"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="To_IDNUMBER" sap:content-version="1">
+                <End Type="ZYCHCN_API_BP_001_SRV.PARTNER" Multiplicity="1" Role="FromRole_To_IDNUMBER"/>
+                <End Type="ZYCHCN_API_BP_001_SRV.IDNUMBER" Multiplicity="*" Role="ToRole_To_IDNUMBER"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_To_IDNUMBER">
+                        <PropertyRef Name="Partner"/>
+                    </Principal>
+                    <Dependent Role="ToRole_To_IDNUMBER">
+                        <PropertyRef Name="Partner"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="To_QUALIFICATION" sap:content-version="1">
+                <End Type="ZYCHCN_API_BP_001_SRV.PARTNER" Multiplicity="1" Role="FromRole_To_QUALIFICATION"/>
+                <End Type="ZYCHCN_API_BP_001_SRV.QUALIFICATION" Multiplicity="*" Role="ToRole_To_QUALIFICATION"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_To_QUALIFICATION">
+                        <PropertyRef Name="Partner"/>
+                    </Principal>
+                    <Dependent Role="ToRole_To_QUALIFICATION">
+                        <PropertyRef Name="Partner"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZYCHCN_API_BP_001_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="QUALIFICATIONSet" EntityType="ZYCHCN_API_BP_001_SRV.QUALIFICATION" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PROLVLSet" EntityType="ZYCHCN_API_BP_001_SRV.PROLVL" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PARTNERSet" EntityType="ZYCHCN_API_BP_001_SRV.PARTNER" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:requires-filter="true" sap:content-version="1"/>
+                <EntitySet Name="IDNUMBERSet" EntityType="ZYCHCN_API_BP_001_SRV.IDNUMBER" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ADDRESSSet" EntityType="ZYCHCN_API_BP_001_SRV.ADDRESS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="To_QUALIFICATIONSet" Association="ZYCHCN_API_BP_001_SRV.To_QUALIFICATION" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PARTNERSet" Role="FromRole_To_QUALIFICATION"/>
+                    <End EntitySet="QUALIFICATIONSet" Role="ToRole_To_QUALIFICATION"/>
+                </AssociationSet>
+                <AssociationSet Name="TO_ADDRESSSet" Association="ZYCHCN_API_BP_001_SRV.TO_ADDRESS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PARTNERSet" Role="FromRole_TO_ADDRESS"/>
+                    <End EntitySet="ADDRESSSet" Role="ToRole_TO_ADDRESS"/>
+                </AssociationSet>
+                <AssociationSet Name="To_IDNUMBERSet" Association="ZYCHCN_API_BP_001_SRV.To_IDNUMBER" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PARTNERSet" Role="FromRole_To_IDNUMBER"/>
+                    <End EntitySet="IDNUMBERSet" Role="ToRole_To_IDNUMBER"/>
+                </AssociationSet>
+                <AssociationSet Name="TO_RATINGSet" Association="ZYCHCN_API_BP_001_SRV.TO_RATING" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="QUALIFICATIONSet" Role="FromRole_TO_RATING"/>
+                    <End EntitySet="PROLVLSet" Role="ToRole_TO_RATING"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://dev.abbott-md.cn:4443/sap/opu/odata/sap/ZYCHCN_API_BP_001_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://dev.abbott-md.cn:4443/sap/opu/odata/sap/ZYCHCN_API_BP_001_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
