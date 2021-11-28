@@ -96,7 +96,6 @@
                 "type": "sap.ui.model.resource.ResourceModel",
                 "uri": "i18n/ObjectPage/PARTNERSet/i18n.properties"
             },
-            
             "": {
                 "dataSource": "mainService",
                 "preload": true,
@@ -111,7 +110,28 @@
             }
         },
         "extends": {
-            "extensions": {}
+            "extensions": {
+                "sap.ui.controllerExtensions": {
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                        "controllerName": "businesspartner.businesspartner.ext.controller.ObjectPageExt",
+                        "sap.ui.generic.app": {
+                            "PARTNERSet": {
+                                "EntitySet": "PARTNERSet",
+                                "Header": {
+                                    "Actions": {
+                                        "id": {
+                                            "id": "idButton",
+                                            "text": "approve",
+                                            "press": "approveChange",
+                                            "requiresSelection": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         },
         "contentDensities": {
             "compact": true,
