@@ -165,6 +165,9 @@
                     <End EntitySet="QUALIFICATIONSet" Role="FromRole_TO_RATING"/>
                     <End EntitySet="PROLVLSet" Role="ToRole_TO_RATING"/>
                 </AssociationSet>
+                <FunctionImport Name="ApproveBP" ReturnType="ZYCHCN_API_BP_001_SRV.PARTNER" EntitySet="PARTNERSet" m:HttpMethod="POST" sap:label="Approve Business Partner" sap:action-for="ZYCHCN_API_BP_001_SRV.PARTNER">
+                    <Parameter Name="Partner" Type="Edm.String" Mode="In"/>
+                </FunctionImport>
             </EntityContainer>
             <atom:link rel="self" href="https://dev.abbott-md.cn:4443/sap/opu/odata/sap/ZYCHCN_API_BP_001_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
             <atom:link rel="latest-version" href="https://dev.abbott-md.cn:4443/sap/opu/odata/sap/ZYCHCN_API_BP_001_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>

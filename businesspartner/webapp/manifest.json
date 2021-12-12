@@ -130,6 +130,42 @@
                             }
                         }
                     }
+                },
+                "sap.ui.viewExtensions": {
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                        "AfterFacet|PROLVLSet|REPLACE_WITH_ANNOTATION_PATH": {
+                            "type": "XML",
+                            "className": "sap.ui.core.mvc.View",
+                            "viewName": "businesspartner.businesspartner.ext.view.customView",
+                            "sap.ui.generic.app": {
+                                "title": "Custom View"
+                            }
+                        },
+                        "AfterFacet|PARTNERSet|REPLACE_WITH_ANNOTATION_PATH": {
+                            "type": "XML",
+                            "className": "sap.ui.core.mvc.View",
+                            "viewName": "businesspartner.businesspartner.ext.view.customView",
+                            "sap.ui.generic.app": {
+                                "title": "A new custom view"
+                            }
+                        },
+                        "AfterSubSection|PARTNERSet|REPLACE_WITH_ANNOTATION_PATH": {
+                            "type": "XML",
+                            "className": "sap.ui.core.mvc.View",
+                            "viewName": "businesspartner.businesspartner.ext.view.customView",
+                            "sap.ui.generic.app": {
+                                "title": "A new custom view"
+                            }
+                        },
+                        "AfterFacet|PARTNERSet|QUALIFICATIONS::com.sap.vocabularies.UI.v1.LineItem": {
+                            "type": "XML",
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "businesspartner.businesspartner.ext.fragment.customFragment",
+                            "sap.ui.generic.app": {
+                                "title": "A new custom fragment"
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -144,7 +180,11 @@
             "forceGlobalRefresh": false,
             "objectPageHeaderType": "Dynamic",
             "considerAnalyticalParameters": true,
-            "showDraftToggle": false
+            "showDraftToggle": false,
+            "flexibleColumnLayout": {
+                "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+                "defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
+            }
         },
         "pages": {
             "ListReport|PARTNERSet": {
